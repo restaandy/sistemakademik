@@ -21,7 +21,7 @@ USE `akademik`;
 DROP TABLE IF EXISTS `data_alumni`;
 
 CREATE TABLE `data_alumni` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_alumni` int(11) NOT NULL AUTO_INCREMENT,
   `id_instantsi` int(11) NOT NULL,
   `nisn` varchar(30) NOT NULL,
   `nis` varchar(30) DEFAULT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `data_alumni` (
   `username` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
   `lastinput` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_alumni`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `data_alumni` */
@@ -82115,6 +82115,7 @@ CREATE TABLE `data_guru` (
   `id_instansi` int(11) NOT NULL,
   `no_ktp` varchar(30) NOT NULL,
   `nama_guru` varchar(30) NOT NULL,
+  `jenkel` enum('L','P') DEFAULT NULL,
   `tgl_lhr` date DEFAULT NULL,
   `tmp_lhr` varchar(20) DEFAULT NULL,
   `prov_id` int(3) DEFAULT NULL,
@@ -82126,10 +82127,14 @@ CREATE TABLE `data_guru` (
   `username` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
   `lastlogin` datetime DEFAULT CURRENT_TIMESTAMP,
+  `aksi` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `data_guru` */
+
+insert  into `data_guru`(`id`,`id_instansi`,`no_ktp`,`nama_guru`,`jenkel`,`tgl_lhr`,`tmp_lhr`,`prov_id`,`kab_id`,`kec_id`,`desa_id`,`alamat`,`status_guru`,`username`,`password`,`lastlogin`,`aksi`) values 
+(1,1,'332454343','Resta Andyt','L','1994-06-18','Tegal',NULL,NULL,NULL,NULL,NULL,'KONTRAK','andyresta','21232f297a57a5a743894a0e4a801fc3','2017-11-16 11:46:14',NULL);
 
 /*Table structure for table `data_instansi` */
 
@@ -89873,8 +89878,8 @@ insert  into `data_provinsi`(`id`,`name`) values
 DROP TABLE IF EXISTS `data_siswa`;
 
 CREATE TABLE `data_siswa` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_instantsi` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_instansi` int(11) NOT NULL,
   `nisn` varchar(30) NOT NULL,
   `nis` varchar(30) DEFAULT NULL,
   `nama_siswa` varchar(30) NOT NULL,
@@ -89894,7 +89899,8 @@ CREATE TABLE `data_siswa` (
   `username` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
   `lastlogin` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  `aksi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_siswa`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `data_siswa` */
@@ -89933,12 +89939,12 @@ CREATE TABLE `rel_perwalian` (
 DROP TABLE IF EXISTS `sch_jadwal`;
 
 CREATE TABLE `sch_jadwal` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jadwal` int(11) NOT NULL AUTO_INCREMENT,
   `id_instansi` int(11) NOT NULL,
   `hari` enum('SENIN','SELASA','RABU','KAMIS','JUMAT','SABTU','MINGGU') NOT NULL,
   `waktu_mulai` time NOT NULL DEFAULT '00:00:00',
   `waktu_selesai` time NOT NULL DEFAULT '00:00:00',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_jadwal`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `sch_jadwal` */
@@ -89948,10 +89954,13 @@ CREATE TABLE `sch_jadwal` (
 DROP TABLE IF EXISTS `sch_kelas`;
 
 CREATE TABLE `sch_kelas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_instansi` int(11) DEFAULT NULL,
-  `nama_kelas` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id_kelas` int(11) NOT NULL AUTO_INCREMENT,
+  `id_instansi` int(11) NOT NULL,
+  `nama_kelas` varchar(30) NOT NULL,
+  `kuota` int(4) DEFAULT NULL,
+  `keterangan` varchar(100) DEFAULT NULL,
+  `aksi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_kelas`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `sch_kelas` */
@@ -89961,27 +89970,31 @@ CREATE TABLE `sch_kelas` (
 DROP TABLE IF EXISTS `sch_pelajaran`;
 
 CREATE TABLE `sch_pelajaran` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
   `id_instansi` int(11) NOT NULL,
   `nama_pelajaran` varchar(30) NOT NULL,
   `status` enum('TEORI','PRAKTEK','LAIN-LAIN') DEFAULT NULL,
-  `bobot` int(3) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `keterangan` varchar(100) DEFAULT NULL,
+  `aksi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_pelajaran`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sch_pelajaran` */
+
+insert  into `sch_pelajaran`(`id_pelajaran`,`id_instansi`,`nama_pelajaran`,`status`,`keterangan`,`aksi`) values 
+(1,1,'Matematika','TEORI','Matematika Dasar Kelas 1 SMP',NULL);
 
 /*Table structure for table `sch_standar_kompetensi` */
 
 DROP TABLE IF EXISTS `sch_standar_kompetensi`;
 
 CREATE TABLE `sch_standar_kompetensi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_sk` int(11) NOT NULL AUTO_INCREMENT,
   `id_instansi` int(11) NOT NULL,
   `id_pelajaran` int(11) NOT NULL,
   `nama_sk` varchar(70) NOT NULL,
   `bobot` int(3) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_sk`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `sch_standar_kompetensi` */
@@ -89991,14 +90004,20 @@ CREATE TABLE `sch_standar_kompetensi` (
 DROP TABLE IF EXISTS `sch_tahun_ajaran`;
 
 CREATE TABLE `sch_tahun_ajaran` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ta` int(11) NOT NULL AUTO_INCREMENT,
   `id_instansi` int(11) DEFAULT NULL,
   `tahun` year(4) NOT NULL,
   `status` enum('Genap','Ganjil') NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `aktif` enum('Aktif','Tidak Aktif') DEFAULT NULL,
+  `aksi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_ta`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sch_tahun_ajaran` */
+
+insert  into `sch_tahun_ajaran`(`id_ta`,`id_instansi`,`tahun`,`status`,`aktif`,`aksi`) values 
+(1,1,2017,'Ganjil','Tidak Aktif',NULL),
+(2,1,2017,'Genap','Tidak Aktif',NULL);
 
 /*Table structure for table `sistem_menu` */
 
@@ -90014,7 +90033,7 @@ CREATE TABLE `sistem_menu` (
   `url` varchar(150) NOT NULL,
   `has_sub` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_menu`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sistem_menu` */
 
@@ -90022,7 +90041,11 @@ insert  into `sistem_menu`(`id_menu`,`id_submenu`,`menu`,`stakeholder`,`urutan`,
 (1,0,'Dashboard','instansi',1,'pe-7s-home','instansi/dashboard',0),
 (2,0,'Master Data','instansi',2,'pe-7s-culture','#',1),
 (3,2,'Data Siswa','instansi',1,'pe-7s-users','instansi/siswa',0),
-(4,2,'Data Guru','instansi',2,'pe-7s-users','instansi/guru',0);
+(4,2,'Data Guru','instansi',2,'pe-7s-users','instansi/guru',0),
+(5,2,'Data Kelas','instansi',3,'pe-7s-users','instansi/kelas',0),
+(6,2,'Data Pelajaran','instansi',4,'pe-7s-users','instansi/pelajaran',0),
+(7,2,'Kompetensi Dasar','instansi',5,'pe-7s-users','instansi/standarkompetensi',0),
+(8,2,'Tahun Ajaran','instansi',6,'pe-7s-users','instansi/tahunajaran',0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

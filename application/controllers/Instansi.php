@@ -3,7 +3,6 @@ include ("libraries/autoload.php");
 use GroceryCrud\Core\GroceryCrud;
 use GroceryCrud\Core\Model\whereModel;
 class Instansi extends CI_Controller {
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -19,6 +18,7 @@ class Instansi extends CI_Controller {
         $this->crud->unsetPrint();
         $this->crud->unsetExport();
         $this->crud->unsetJquery();
+        $this->crud->unsetBootstrap();
 	}
 	public function index(){
 		$this->dashboard();
@@ -39,7 +39,6 @@ class Instansi extends CI_Controller {
         $var['var_custom_js'] = "none";
         $var['var_breadcrumb'] = array();
         $var['var_other'] = array("page"=>$page);
-
         //$this->crud->unsetAdd();
         $this->crud->unsetEdit();
         $this->crud->unsetDelete();
@@ -82,7 +81,6 @@ class Instansi extends CI_Controller {
         $var['var_custom_js'] = "none";
         $var['var_breadcrumb'] = array();
         $var['var_other'] = array("page"=>$page);
-
         //$this->crud->unsetAdd();
         $this->crud->unsetEdit();
         $this->crud->unsetDelete();
@@ -126,7 +124,6 @@ class Instansi extends CI_Controller {
         $var['var_custom_js'] = "none";
         $var['var_breadcrumb'] = array();
         $var['var_other'] = array("page"=>$page);
-
         //$this->crud->unsetAdd();
         $this->crud->unsetEdit();
         $this->crud->unsetDelete();
@@ -164,7 +161,6 @@ class Instansi extends CI_Controller {
         $var['var_custom_js'] = "none";
         $var['var_breadcrumb'] = array();
         $var['var_other'] = array("page"=>$page);
-
         //$this->crud->unsetAdd();
         $this->crud->unsetEdit();
         $this->crud->unsetDelete();
@@ -203,6 +199,11 @@ class Instansi extends CI_Controller {
         $this->load->view('main',$var);
 	}
 	public function tahunajaran($page=NULL){
+		if($this->input->post("simpan")!=NULL){
+			$result=$this->gmodel->set_ta_aktif($this->input->post("id_ta"));
+			$this->gmodel->alert($result,"Tahun Ajaran Berhasil di Setting","Gagal Setting Tahun Ajaran");
+			redirect("instansi/tahunajaran");
+		}
         $var = array();
         $var['gcrud'] = 1;
         $var['module'] = "";
@@ -213,7 +214,6 @@ class Instansi extends CI_Controller {
         $var['var_custom_js'] = "none";
         $var['var_breadcrumb'] = array();
         $var['var_other'] = array("page"=>$page);
-
         //$this->crud->unsetAdd();
         $this->crud->unsetEdit();
         $this->crud->unsetDelete();
@@ -221,7 +221,7 @@ class Instansi extends CI_Controller {
         $this->crud->columns(['tahun','status','aktif','aksi']);
         $this->crud->where(["id_instansi='".$this->session->userdata('id_instansi')."'"]);
         $this->crud->callbackColumn('aksi', function ($value, $row) {
-		     $aktif=$row->aktif=="Tidak Aktif"?'<a href="#" onclick="" class="btn btn-info btn-sm">Set Aktif</i></a>':'';
+		     $aktif=$row->aktif=="Tidak Aktif"?'<a href="#" onclick="set_aktif_ta(event)" data-id="'.$row->id_ta.'" class="btn btn-info btn-sm">Set Aktif</i></a>':'';
 		     return '<a href="#" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>&nbsp'.'<a class="btn btn-danger btn-sm gc-delete-single" href="javascript:void(0)" data-primary-key-value="'.$row->id_ta.'"><i class="fa fa-trash-o"></i></a>&nbsp'.$aktif;
 		});
 		$this->crud->callbackBeforeInsert(function ($stateParameters) {
