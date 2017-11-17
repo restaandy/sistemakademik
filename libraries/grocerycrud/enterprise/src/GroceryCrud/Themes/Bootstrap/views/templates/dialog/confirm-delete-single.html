@@ -1,0 +1,24 @@
+<script type="text/x-handlebars-template" class="gc-confirm-delete-single">
+    <div class="delete-single-confirmation modal fade">
+        <div class="modal-dialog gc-modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">{{i18n.action_delete}}</h4>
+                </div>
+                <div class="modal-body delete-modal">
+                    <p>{{i18n.confirm_delete}}</p>
+                    <div class="content-to-delete"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default gc-cancel-button" data-dismiss="modal">
+                        {{i18n.cancel}}
+                    </button>
+                    <button type="button" class="btn btn-danger delete-single-confirmation-button">
+                        {{i18n.action_delete}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

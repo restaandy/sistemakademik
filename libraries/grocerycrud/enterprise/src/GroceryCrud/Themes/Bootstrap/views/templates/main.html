@@ -1,0 +1,72 @@
+<!-- build from templates/main.html -->
+include "../templates/caption-title.html"
+include "../templates/header/header-columns.html"
+include "../templates/header/header-actions-operations.html"
+include "../templates/header/search-columns.html"
+include "../templates/paging.html"
+include "../templates/table-row.html"
+include "../templates/settings.html"
+include "../templates/error.html"
+
+include "../templates/operations/common.html"
+include "../templates/export-button.html"
+include "../templates/print.html"
+
+include "../templates/dialog/confirm-delete-single.html"
+include "../templates/dialog/confirm-delete-multiple.html"
+<div class="gc-grid-container panel panel-default">
+    <div class="table-container">
+        <form action="" method="post" autocomplete="off" id="gcrud-search-form">
+            <div class="header-tools">
+                <div class="floatR l5 search-button-container">
+                    <a class="btn btn-primary search-button t5">
+                        <i class="fa fa-search"></i>
+                        <input type="text" name="search" class="gc-search-input" />
+                    </a>
+                </div>
+            </div>
+            <div class="gc-scrolling-left">
+                <table class="table table-bordered grocery-crud-table table-hover">
+                    <thead>
+                    <tr class="header-columns">
+                    </tr>
+                    <tr class="filter-row gc-search-row">
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer-tools">
+                <!-- Table Footer Starts here -->
+                <div class="paging-entries-container floatL"></div>
+
+                <!-- Buttons - First,Previous,Next,Last Page -->
+                <div class="floatR r5">
+
+                    <ul class="pagination">
+                        <li class="disabled paging-first"><a href="#"><i class="fa fa-step-backward"></i></a></li>
+                        <li class="prev disabled paging-previous"><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                        <li>
+                                    <span class="page-number-input-container">
+                                        <input type="number" value="1" class="form-control page-number-input" />
+                                    </span>
+                        </li>
+                        <li class="next paging-next"><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                        <li class="paging-last"><a href="#"><i class="fa fa-step-forward"></i></a></li>
+                    </ul>
+
+                    <input type="hidden" name="page_number" class="page-number-hidden" value="1" />
+
+                </div>
+                <!-- End of Buttons - First,Previous,Next,Last Page -->
+
+                <div class="displaying-paging-container floatR"></div>
+
+                <div class="clear"></div>
+            </div>
+            <!-- Table Footer Ends here -->
+        </form>
+    </div>
+</div>

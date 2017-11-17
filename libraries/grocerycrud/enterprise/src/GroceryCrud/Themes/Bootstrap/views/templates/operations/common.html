@@ -1,0 +1,37 @@
+<script type="text/x-handlebars-template" class="gc-add-button">
+    {{#if operationAddEnabled}}
+        <div class="floatL t5">
+            <a class="btn btn-success button-add" href="{{addUrl}}">
+                <i class="fa fa-plus"></i> &nbsp;
+                {{addItemString}}
+            </a>
+        </div>
+    {{/if}}
+</script>
+
+<script type="text/x-handlebars-template" class="gc-insert-modal-template">
+<div class="modal fade gc-form-operation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog gc-modal-dialog" role="document">
+        <form class="form-horizontal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="gc-modal-title">
+                        <h4 class="modal-title"></h4>
+                    </div>
+                </div>
+                <div class="modal-body gc-modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <label class="options-on-save">
+                        <input type="checkbox" checked="checked" class="close-modal-on-save" /> {{i18n.close_modal_on_save}}
+                    </label> &nbsp; &nbsp;
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{i18n.close_modal}}</button>
+                    <button type="submit" class="btn btn-primary save-changes">{{i18n.modal_save}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</script>

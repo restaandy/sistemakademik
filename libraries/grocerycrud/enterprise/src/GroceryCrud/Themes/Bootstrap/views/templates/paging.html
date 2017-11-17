@@ -1,0 +1,36 @@
+<script type="text/x-handlebars-template" class="paging-entries-template">
+    <div class="floatL t20 l5">
+        <div class="floatL t10">
+            {{i18n.paging_show_entries.first}}
+        </div>
+        <div class="floatL r5 l5 t3">
+            <select name="per_page" class="per_page form-control">
+                <option value="10" selected="selected">
+                    10
+                </option>
+                <option value="25">
+                    25
+                </option>
+                <option value="50">
+                    50
+                </option>
+                <option value="100">
+                    100
+                </option>
+            </select>
+        </div>
+        <div class="floatL t10">
+            {{i18n.paging_show_entries.second}}
+        </div>
+        <div class="clear"></div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" class="displaying-paging-template">
+    <div class="floatR r10 t30">
+        {{{i18n.paging_displaying}}}
+        <span class="full-total-container hidden">
+            {{{i18n.paging_filtered_from}}}
+        </span>
+    </div>
+</script>

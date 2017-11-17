@@ -1,0 +1,60 @@
+<script type="text/x-handlebars-template" class="gc-template-settings">
+    <div class="floatR t5 l5">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle gc-bootstrap-dropdown" aria-expanded="false">
+                <span class="fa fa-gear"></span>
+                &nbsp;{{i18n.settings}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                    <a href="javascript:void(0)">
+                        <i class="fa fa-list-alt"></i> &nbsp;
+                        {{i18n.columns}}
+                    </a>
+                    <ul class="dropdown-menu visible-columns">
+                        {{#each columns}}
+                        <li>
+                            <a href="javascript:void(0)">
+                                <input type="checkbox" value="{{columnName}}" checked="checked" data-display-as="{{displayAs}}" /> {{displayAs}}
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="gc-refresh">
+                        <i class="fa fa-refresh"></i> &nbsp;
+                        {{i18n.refresh}}
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="gc-clear-filtering">
+                        <i class="fa fa-filter"></i> &nbsp;
+                        {{i18n.clear_filtering}}
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="gc-clear-cache">
+                        <i class="fa fa-eraser"></i>
+                        {{i18n.clear_cache}}
+                    </a>
+                </li>
+                <li class="dropdown-submenu">
+                    <a href="javascript:void(0)">
+                        <i class="fa fa-ellipsis-h"></i> &nbsp;
+                        {{i18n.more}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="javascript:void(0)" class="gc-auto-fit-columns">
+                                <i class="fa fa-align-center"></i> &nbsp;
+                                {{i18n.columns_fit}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>

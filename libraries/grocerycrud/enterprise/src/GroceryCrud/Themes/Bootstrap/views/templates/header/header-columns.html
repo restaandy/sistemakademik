@@ -1,0 +1,12 @@
+<script type="text/x-handlebars-template" class="gc-table-header-columns">
+    {{#if hasActions}}
+        <th colspan="2" class="header-actions">
+            {{i18n.actions}}
+        </th>
+    {{/if}}
+    {{#each table_columns}}
+        <th class="{{#if hasOrdering}}column-with-ordering{{/if}}" data-order-by="{{column_name}}">
+            <div>{{display_name}}</div>
+        </th>
+    {{/each}}
+</script>

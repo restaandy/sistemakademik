@@ -1,0 +1,32 @@
+<script type="text/x-handlebars-template" class="gc-print-button">
+    {{#if operationPrintEnabled}}
+        <div class="floatR l5 gc-print-container">
+            <a class="btn btn-default t5 gc-print" data-url="">
+                <i class="fa fa-print floatL t3"></i>
+                    <span class="hidden-xs floatL l5">
+                        {{i18n.print}}
+                    </span>
+                <div class="clear"></div>
+            </a>
+        </div>
+    {{/if}}
+</script>
+
+<script type="text/x-handlebars-template" class="gc-print-template">
+    <div id="table-container">
+        <div class="print-table">
+            <table>
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" class="gc-print-header">
+    {{#each headerColumns}}
+        <th>
+            {{displayAs}}
+        </th>
+    {{/each}}
+</script>

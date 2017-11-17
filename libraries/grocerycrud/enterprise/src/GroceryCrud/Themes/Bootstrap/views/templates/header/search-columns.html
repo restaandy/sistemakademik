@@ -1,0 +1,71 @@
+<script type="text/x-handlebars-template" class="gc-search-columns">
+    {{#each table_columns}}
+        <td class="gc-search-column">
+            {{#ifCond columnInfo.dataType 'enum'}}
+            <select placeholder="{{../i18n.quick_search}}" name="{{column_name}}" class="form-control gc-searchable-select">
+                <option></option>
+                {{#each columnInfo.permittedValues}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            {{/ifCond}}
+
+            {{#ifCond columnInfo.dataType 'enum_searchable'}}
+            <select placeholder="{{../i18n.quick_search}}" name="{{column_name}}" class="form-control gc-searchable-select">
+                <option></option>
+                {{#each columnInfo.permittedValues}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            {{/ifCond}}
+
+            {{#ifCond columnInfo.dataType 'checkbox_boolean'}}
+            <div class="l5 t5">
+                <input type="checkbox" name="{{column_name}}" class="gc-searchable-checkbox" value="1" />
+            </div>
+            {{/ifCond}}
+
+            {{#ifCond columnInfo.dataType 'relational_n_n'}}
+            <select placeholder="{{../i18n.quick_search}}" name="{{column_name}}" class="form-control gc-searchable-select">
+                <option></option>
+                {{#each columnInfo.permittedValues}}
+                <option value="{{id}}">{{title}}</option>
+                {{/each}}
+            </select>
+            {{/ifCond}}
+
+            {{#ifCond columnInfo.dataType 'native_relational_n_n'}}
+                <select placeholder="{{../i18n.quick_search}}" name="{{column_name}}" class="form-control gc-searchable-select">
+                    <option></option>
+                    {{#each columnInfo.permittedValues}}
+                        <option value="{{id}}">{{title}}</option>
+                    {{/each}}
+                </select>
+            {{/ifCond}}
+
+            {{#ifCond columnInfo.dataType 'relational'}}
+            <select placeholder="{{../i18n.quick_search}}" name="{{column_name}}" class="form-control gc-searchable-select">
+                <option></option>
+                {{#each columnInfo.permittedValues}}
+                    <option value="={{id}}">{{title}}</option>
+                {{/each}}
+            </select>
+            {{/ifCond}}
+
+            {{#ifCond columnInfo.dataType 'dropdown'}}
+            <select placeholder="{{../i18n.quick_search}}" name="{{column_name}}" class="form-control gc-searchable-select">
+                <option></option>
+                {{#each columnInfo.permittedValues}}
+                    <option value="{{@key}}">{{this}}</option>
+                {{/each}}
+            </select>
+            {{/ifCond}}
+
+            {{#unless knownField}}
+                <input type="search" class="form-control gc-searchable-input floatL"
+                       placeholder="{{../i18n.quick_search}}"
+                       name="{{column_name}}"/>
+            {{/unless}}
+        </td>
+    {{/each}}
+</script>

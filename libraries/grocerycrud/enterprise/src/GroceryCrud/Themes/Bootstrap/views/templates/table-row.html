@@ -1,0 +1,82 @@
+<script type="text/x-handlebars-template" class="gc-table-row">
+    <tr data-id="{{primaryKeyValue}}">
+        {{#if hasActions}}
+            <td class="gc-row-checkbox{{#unless deleteMultipleEnabled}} hideSideBorders size5px{{/unless}}" width="30">
+                {{#if deleteMultipleEnabled}}
+                    <input type="checkbox" class="gc-select-row" data-id="{{primaryKeyValue}}">
+                {{/if}}
+            </td>
+            <td class="gc-actions{{#unless deleteMultipleEnabled}} hideSideBorders{{/unless}}">
+                <div class="gc-actions-container">
+                    {{#if operationEditEnabled}}
+                    <a class="btn btn-default gc-edit-button" href="{{editUrl}}" data-primary-key-value="{{primaryKeyValue}}">
+                        <i class="fa fa-pencil"></i> {{i18n.edit}}
+                    </a>
+                    {{/if}}
+
+                    {{#if hasMoreButton}}
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle gc-bootstrap-dropdown">
+                                {{#if operationEditEnabled}}
+                                    {{i18n.more}}
+                                {{else}}
+                                    {{i18n.actions}}
+                                {{/if}}
+                                <span class="caret"></span>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                {{#if operationReadEnabled}}
+                                <li>
+                                    <a href="{{readUrl}}" class="gc-read-button" data-primary-key-value="{{primaryKeyValue}}">
+                                        <i class="fa fa-eye"></i> {{i18n.view}}
+                                    </a>
+                                </li>
+                                {{/if}}
+                                {{#each actionButtons}}
+                                <li>
+                                    <a class="gc-action" href="javascript:" data-primary-key-value="{{../primaryKeyValue}}" data-action-key="{{@index}}">
+                                        <i class="{{iconCssClass}}"></i>
+                                        <span>{{label}}</span>
+                                    </a>
+                                </li>
+                                {{/each}}
+                                {{#each backendActionButtons}}
+                                <li>
+                                    <a href="{{url}}"{{#if newTab}}target="_blank"{{/if}}>
+                                        <i class="{{iconCssClass}}"></i>
+                                        <span>{{label}}</span>
+                                    </a>
+                                </li>
+                                {{/each}}
+                                {{#if operationDeleteEnabled}}
+                                <li>
+                                    <a class="gc-delete-single" href="{{deleteUrl}}" data-primary-key-value="{{primaryKeyValue}}">
+                                        <i class="fa fa-trash-o text-danger"></i>
+                                        <span class="text-danger">{{i18n.action_delete}}</span>
+                                    </a>
+                                </li>
+                                {{/if}}
+                            </ul>
+                        </div>
+                    {{else}}
+                        {{#if operationReadEnabled}}
+                        <a href="{{readUrl}}" class="btn btn-default gc-read-button" data-primary-key-value="{{primaryKeyValue}}">
+                            <i class="fa fa-eye"></i> {{i18n.view}}
+                        </a>
+                        {{/if}}
+                        {{#if operationDeleteEnabled}}
+                        <a class="btn btn-default gc-delete-single" href="javascript:void(0)" data-primary-key-value="{{primaryKeyValue}}">
+                            <i class="fa fa-trash-o text-danger"></i>
+                            <span class="text-danger">{{i18n.action_delete}}</span>
+                        </a>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </td>
+        {{/if}}
+        {{#each table_rows}}
+            <td>{{{value}}}</td>
+        {{/each}}
+    </tr>
+</script>

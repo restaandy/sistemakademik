@@ -1,0 +1,25 @@
+<script type="text/x-handlebars-template" class="gc-header-actions-operations">
+    {{#if hasActionButtons}}
+        <td class="actions-checkbox-selection">
+            <div class="floatL t5">
+                {{#if operationDeleteEnabled}}
+                    <input type="checkbox" class="select-all-none" />
+                {{/if}}
+            </div>
+        </td>
+        <td class="actions-select-multiple">
+            <div class="floatL">
+                <a href="javascript:void(0);" title="Delete"
+                   class="hidden btn btn-default delete-selected-button">
+                    <i class="fa fa-trash-o text-danger"></i>
+                    <span class="text-danger">
+                        {{i18n.action_delete}}
+                    </span>
+                </a>
+            </div>
+            <div class="floatR gc-settings-container">
+            </div>
+            <div class="clear"></div>
+        </td>
+    {{/if}}
+</script>
