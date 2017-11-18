@@ -23,10 +23,15 @@ class Global_model extends CI_Model {
     		$type="success";
     		$msg=$msgyes;
     	}else{
-    		$type=$war==NULL?'danger':'warning';
+    		$type=$war==NULL?'error':'warning';
     		$msg=$msgno;
     	}
     	$this->session->set_flashdata("notif",array("type"=>$type,"msg"=>$msg));
+    }
+    public function getDataTableInfo($table,$kolom,$where){
+        $this->db->where($kolom,$where);
+        $data=$this->db->get($table);
+        return $data->row_array();
     }
 
 }

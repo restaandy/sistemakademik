@@ -82111,9 +82111,10 @@ insert  into `data_desa`(`id`,`district_id`,`name`) values
 DROP TABLE IF EXISTS `data_guru`;
 
 CREATE TABLE `data_guru` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_guru` int(11) NOT NULL AUTO_INCREMENT,
   `id_instansi` int(11) NOT NULL,
   `no_ktp` varchar(30) NOT NULL,
+  `nip` varchar(30) DEFAULT NULL,
   `nama_guru` varchar(30) NOT NULL,
   `jenkel` enum('L','P') DEFAULT NULL,
   `tgl_lhr` date DEFAULT NULL,
@@ -82128,13 +82129,13 @@ CREATE TABLE `data_guru` (
   `password` varchar(255) NOT NULL,
   `lastlogin` datetime DEFAULT CURRENT_TIMESTAMP,
   `aksi` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_guru`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `data_guru` */
 
-insert  into `data_guru`(`id`,`id_instansi`,`no_ktp`,`nama_guru`,`jenkel`,`tgl_lhr`,`tmp_lhr`,`prov_id`,`kab_id`,`kec_id`,`desa_id`,`alamat`,`status_guru`,`username`,`password`,`lastlogin`,`aksi`) values 
-(1,1,'332454343','Resta Andyt','L','1994-06-18','Tegal',NULL,NULL,NULL,NULL,NULL,'KONTRAK','andyresta','21232f297a57a5a743894a0e4a801fc3','2017-11-16 11:46:14',NULL);
+insert  into `data_guru`(`id_guru`,`id_instansi`,`no_ktp`,`nip`,`nama_guru`,`jenkel`,`tgl_lhr`,`tmp_lhr`,`prov_id`,`kab_id`,`kec_id`,`desa_id`,`alamat`,`status_guru`,`username`,`password`,`lastlogin`,`aksi`) values 
+(1,1,'332454343',NULL,'Andy Resta Pradika','L','1994-06-18','Tegal',NULL,NULL,NULL,NULL,NULL,'KONTRAK','andyresta','21232f297a57a5a743894a0e4a801fc3','2017-11-16 11:46:14',NULL);
 
 /*Table structure for table `data_instansi` */
 
@@ -89961,9 +89962,13 @@ CREATE TABLE `sch_kelas` (
   `keterangan` varchar(100) DEFAULT NULL,
   `aksi` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_kelas`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sch_kelas` */
+
+insert  into `sch_kelas`(`id_kelas`,`id_instansi`,`nama_kelas`,`kuota`,`keterangan`,`aksi`) values 
+(1,1,'Kelas X A',40,'Kelas X A dengan kuota 40 anak',NULL),
+(2,1,'Kelas X B',40,'Kelas X B dengan kuota 40 anak',NULL);
 
 /*Table structure for table `sch_pelajaran` */
 
