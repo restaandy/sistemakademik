@@ -74,47 +74,51 @@ class Instansi extends CI_Controller {
         }
         $this->load->view('main',$var);
 	}
-	public function siswa($page=NULL){
+	public function siswa($page=NULL,$id_siswa=NULL){
         $var = array();
-        $var['gcrud'] = 1;
-        $var['module'] = "";
-        $var['var_module'] = "";
+        $var['module'] = "instansi/siswa";
+        $var['var_module'] = "instansi/siswa";
         $var['var_title'] = "Siswa";
         $var['var_subtitle'] = "List Daftar Siswa";
         $var['var_custom_css'] = "none";
         $var['var_custom_js'] = "none";
         $var['var_breadcrumb'] = array();
-        $var['var_other'] = array("page"=>$page);
-        //$this->crud->unsetAdd();
-        $this->crud->unsetEdit();
-        $this->crud->unsetDelete();
-        $this->crud->setTable('data_siswa');
-        $this->crud->columns(['nis','nama_siswa','tmp_lhr','alamat','jenkel','aksi']);
-        $this->crud->where(["id_instansi='".$this->session->userdata('id_instansi')."'"]);
-        $this->crud->displayAs("jenkel","Jenis Kelamin");
-        $this->crud->displayAs("tmp_lhr","Tempat Lahir");
-        $this->crud->displayAs("tgl_lhr","Tanggal Lahir");
-        $this->crud->displayAs("nohp","Nomor HP");
-        $this->crud->callbackColumn('jenkel', function ($value, $row) {
-		     return $value=="L"?"Laki - laki":"Perempuan";
-		});
-        $this->crud->callbackColumn('aksi', function ($value, $row) {
-             return "<a href='#' class='btn btn-info btn-sm'>Detail</a>&nbsp<a href='#' class='btn btn-warning btn-sm'>Edit</a>&nbsp<a href='#' class='btn btn-danger btn-sm'>Hapus</a>";
-        });
-		$this->crud->callbackBeforeInsert(function ($stateParameters) {
-		    $stateParameters->data['id_instansi'] = $this->session->userdata('id_instansi');
-		    return $stateParameters;
-		});
-		$this->crud->addFields(['nisn','nis', 'nama_siswa', 'jenkel', 'tmp_lhr','tgl_lhr','alamat','nohp','email','status_siswa']);
-        $output = $this->crud->render();
-        if ($output->isJSONResponse) {
-            header('Content-Type: application/json; charset=utf-8');
-            echo $output->output;
-            exit;
+        $var['var_other'] = array("page"=>$page,"id_siswa"=>$id_siswa);
+        if($page=="edit"){
+            
+        }else{
+            $var['gcrud'] = 1;
+            //$this->crud->unsetAdd();
+            $this->crud->unsetEdit();
+            $this->crud->unsetDelete();
+            $this->crud->setTable('data_siswa');
+            $this->crud->columns(['nis','nama_siswa','tmp_lhr','alamat','jenkel','aksi']);
+            $this->crud->where(["id_instansi='".$this->session->userdata('id_instansi')."'"]);
+            $this->crud->displayAs("jenkel","Jenis Kelamin");
+            $this->crud->displayAs("tmp_lhr","Tempat Lahir");
+            $this->crud->displayAs("tgl_lhr","Tanggal Lahir");
+            $this->crud->displayAs("nohp","Nomor HP");
+            $this->crud->callbackColumn('jenkel', function ($value, $row) {
+    		     return $value=="L"?"Laki - laki":"Perempuan";
+    		});
+            $this->crud->callbackColumn('aksi', function ($value, $row) {
+                 return "<a href='#' class='btn btn-info btn-sm'>Detail</a>&nbsp<a href='siswa/edit/".$this->urlenkripsi->encode_url($row->id_siswa)."' class='btn btn-warning btn-sm'>Edit</a>&nbsp<a href='#' class='btn btn-danger btn-sm'>Hapus</a>";
+            });
+    		$this->crud->callbackBeforeInsert(function ($stateParameters) {
+    		    $stateParameters->data['id_instansi'] = $this->session->userdata('id_instansi');
+    		    return $stateParameters;
+    		});
+    		$this->crud->addFields(['nisn','nis', 'nama_siswa', 'jenkel', 'tmp_lhr','tgl_lhr','alamat','nohp','email','status_siswa']);
+            $output = $this->crud->render();
+            if ($output->isJSONResponse) {
+                header('Content-Type: application/json; charset=utf-8');
+                echo $output->output;
+                exit;
+            }
+            $var['css_files'] = $output->css_files;
+            $var['js_files'] = $output->js_files;
+            $var['output'] = $output->output;
         }
-        $var['css_files'] = $output->css_files;
-        $var['js_files'] = $output->js_files;
-        $var['output'] = $output->output;
         $this->load->view('main',$var);
 	}
 	public function kelas($page=NULL){
@@ -135,6 +139,9 @@ class Instansi extends CI_Controller {
         $this->crud->columns(['nama_kelas','kuota','keterangan']);
         $this->crud->where(["id_instansi='".$this->session->userdata('id_instansi')."'"]);
         $this->crud->displayAs("kuota","Kuota Isi Kelas");
+        $this->crud->callbackColumn('kuota', function ($value, $row) {
+                 return $value." Orang";
+        });
 		$this->crud->callbackBeforeInsert(function ($stateParameters) {
 		    $stateParameters->data['id_instansi'] = $this->session->userdata('id_instansi');
 		    return $stateParameters;
@@ -187,6 +194,41 @@ class Instansi extends CI_Controller {
         $var['output'] = $output->output;
         $this->load->view('main',$var);
 	}
+    public function jenjang($page=NULL){
+        $var = array();
+        $var['gcrud'] = 1;
+        $var['module'] = "";
+        $var['var_module'] = "";
+        $var['var_title'] = "Jenjang Pendidikan";
+        $var['var_subtitle'] = "List Jenjang Pendidikan";
+        $var['var_custom_css'] = "none";
+        $var['var_custom_js'] = "none";
+        $var['var_breadcrumb'] = array();
+        $var['var_other'] = array("page"=>$page);
+        //$this->crud->unsetAdd();
+        //$this->crud->unsetEdit();
+        //$this->crud->unsetDelete();
+        $this->crud->setTable('sch_jenjang_pendidikan');
+        $this->crud->columns(['jenjang','keterangan']);
+        $this->crud->where(["id_instansi='".$this->session->userdata('id_instansi')."'"]);
+        $this->crud->displayAs("jenjang","Jenjang Pendidikan");
+        $this->crud->callbackBeforeInsert(function ($stateParameters) {
+            $stateParameters->data['id_instansi'] = $this->session->userdata('id_instansi');
+            return $stateParameters;
+        });
+        $this->crud->editFields(['jenjang','keterangan']);
+        $this->crud->addFields(['jenjang','keterangan']);
+        $output = $this->crud->render();
+        if ($output->isJSONResponse) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo $output->output;
+            exit;
+        }
+        $var['css_files'] = $output->css_files;
+        $var['js_files'] = $output->js_files;
+        $var['output'] = $output->output;
+        $this->load->view('main',$var);
+    }
 	public function standarkompetensi($page=NULL){
         $var = array();
         $var['module'] = "standarkompetensi";

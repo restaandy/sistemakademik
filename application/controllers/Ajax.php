@@ -8,7 +8,7 @@ class Ajax extends CI_Controller {
 		if($this->input->is_ajax_request()){
 			$kab=$this->db->get_where("data_kota",array("province_id"=>$this->input->post("prov_id")));
 			$kab=$kab->result();
-			echo '<option value="">-- Pilih Provinsi --</option>';
+			echo '<option value="">-- Pilih Kabupaten/Kota --</option>';
 			foreach ($kab as $key) {
 				echo "<option value='".$key->id."'>".$key->name."</option>";
 			}

@@ -5,10 +5,10 @@
                 <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                 <a class="closebox"><i class="fa fa-times"></i></a>
             </div>
-            Edit Data Guru <?php $guru=$this->gmodel->getDataTableInfo("data_guru","id_guru",$this->urlenkripsi->decode_url($id_guru)); if(sizeof($guru)==0){$this->gmodel->alert($guru,"","Data Tidak Ada");redirect("instansi/guru");}echo $guru['nama_guru'];?>
+            Edit Data Siswa <?php $siswa=$this->gmodel->getDataTableInfo("data_siswa","id_siswa",$this->urlenkripsi->decode_url($id_siswa)); if(sizeof($siswa)==0){$this->gmodel->alert($siswa,"","Data Tidak Ada");redirect("instansi/siswa");}echo $siswa['nama_siswa'];?>
         </div>
         <div class="panel-body">
-<!-- Tambah Guru -->
+<!-- Tambah siswa -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/select2-3.5.2/select2.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/select2-bootstrap/select2-bootstrap.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.min.css" />
@@ -26,28 +26,28 @@ fieldset {
     border: 0.1em solid gray;
 }
 </style>
-<?php echo form_open("operation/edit_guru"); ?>
+<?php echo form_open("operation/edit_siswa"); ?>
 <div class="col-md-4">
     <fieldset>
     <legend>Data Diri</legend>
         <div class="row">
             <div class="form-group">
-                <label>No KTP (NIK)</label>
+                <label>NISN</label>
                 <input type="hidden" value="<?php echo $this->session->userdata('id_instansi'); ?>" name="id_instansi">
-                <input type="hidden" value="<?php echo $guru['id_guru']; ?>" name="id_guru">
-                <input type="text" placeholder="No KTP" class="form-control" name="no_ktp" value="<?php echo $guru['no_ktp']; ?>" required="">
+                <input type="hidden" value="<?php echo $siswa['id_siswa']; ?>" name="id_siswa">
+                <input type="text" placeholder="NISN" class="form-control" name="nisn" value="<?php echo $siswa['nisn']; ?>" required="">
             </div>
         </div>
         <div class="row">
             <div class="form-group">
-                <label>NIP Pegawai</label>
-                <input type="text" placeholder="NIP" class="form-control" name="nip" value="<?php echo $guru['nip']; ?>" required="">
+                <label>NIS</label>
+                <input type="text" placeholder="NIS" class="form-control" name="nis" value="<?php echo $siswa['nis']; ?>" required="">
             </div>
         </div>
         <div class="row">
             <div class="form-group">
-                <label>Nama Guru</label>
-                <input type="text" placeholder="Nama Guru" class="form-control" name="nama_guru" value="<?php echo $guru['nama_guru']; ?>" required="">
+                <label>Nama Siswa</label>
+                <input type="text" placeholder="Nama Siswa" class="form-control" name="nama_siswa" value="<?php echo $siswa['nama_siswa']; ?>" required="">
             </div>
         </div>
         <div class="row">
@@ -55,22 +55,22 @@ fieldset {
                 <label>Jenis Kelamin</label>
                 <select class="form-control" name="jenkel" required="">
                     <option value="">-- Jenis Kelamin --</option>
-                    <option value="L" <?php echo $guru['jenkel']=="L"?"selected":""; ?>>Laki - laki</option>
-                    <option value="P" <?php echo $guru['jenkel']=="P"?"selected":""; ?>>Perempuan</option>
+                    <option value="L" <?php echo $siswa['jenkel']=="L"?"selected":""; ?>>Laki - laki</option>
+                    <option value="P" <?php echo $siswa['jenkel']=="P"?"selected":""; ?>>Perempuan</option>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label>Tempat Lahir</label>
-                    <input type="text" class="form-control" placeholder="Tempat lahir" name="tmp_lhr" value="<?php echo $guru['tmp_lhr']; ?>" required="">
+                    <input type="text" class="form-control" placeholder="Tempat lahir" name="tmp_lhr" value="<?php echo $siswa['tmp_lhr']; ?>" required="">
             </div>  
         </div>
         <div class="row">
             <div class="form-group">
                 <label>Tanggal Lahir</label>
                 <div class="input-group date">
-                    <input type="text" class="form-control datepicker" value="<?php echo date_format(date_create($guru['tgl_lhr']),'d/m/Y'); ?>" placeholder="Tanggal lahir" name="tgl_lhr" required=""><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    <input type="text" class="form-control datepicker" value="<?php echo date_format(date_create($siswa['tgl_lhr']),'d/m/Y'); ?>" placeholder="Tanggal lahir" name="tgl_lhr" required=""><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@ fieldset {
                         $prov=$prov->result();
                         foreach ($prov as $key) {
                             ?>
-                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$guru['prov_id']?"selected":""; ?>><?php echo $key->name; ?></option>
+                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$siswa['prov_id']?"selected":""; ?>><?php echo $key->name; ?></option>
                             <?php
                         }
                     ?>
@@ -102,12 +102,12 @@ fieldset {
                 <select class="form-control" name="kab_id" onchange="get_kec(event)">
                     <option value="">-- Pilih Kabupaten/Kota --</option>
                     <?php
-                        $this->db->where("province_id",$guru['prov_id']);
+                        $this->db->where("province_id",$siswa['prov_id']);
                         $kota=$this->db->get("data_kota");
                         $kota=$kota->result();
                         foreach ($kota as $key) {
                             ?>
-                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$guru['kab_id']?"selected":""; ?>><?php echo $key->name; ?></option>
+                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$siswa['kab_id']?"selected":""; ?>><?php echo $key->name; ?></option>
                             <?php
                         }
                     ?>
@@ -120,12 +120,12 @@ fieldset {
                 <select class="form-control" name="kec_id" onchange="get_desa(event)">
                     <option value="">-- Pilih Kecamatan --</option>
                     <?php
-                        $this->db->where("regency_id",$guru['kab_id']);
+                        $this->db->where("regency_id",$siswa['kab_id']);
                         $kec=$this->db->get("data_kecamatan");
                         $kec=$kec->result();
                         foreach ($kec as $key) {
                             ?>
-                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$guru['kec_id']?"selected":""; ?>><?php echo $key->name; ?></option>
+                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$siswa['kec_id']?"selected":""; ?>><?php echo $key->name; ?></option>
                             <?php
                         }
                     ?>
@@ -138,12 +138,12 @@ fieldset {
                 <select class="form-control" name="desa_id">
                     <option value="">-- Pilih Desa --</option>
                     <?php
-                        $this->db->where("district_id",$guru['kec_id']);
+                        $this->db->where("district_id",$siswa['kec_id']);
                         $desa=$this->db->get("data_desa");
                         $desa=$desa->result();
                         foreach ($desa as $key) {
                             ?>
-                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$guru['desa_id']?"selected":""; ?>><?php echo $key->name; ?></option>
+                            <option value="<?php echo $key->id; ?>" <?php echo $key->id==$siswa['desa_id']?"selected":""; ?>><?php echo $key->name; ?></option>
                             <?php
                         }
                     ?>
@@ -153,24 +153,23 @@ fieldset {
         <div class="row">
             <div class="form-group">
                 <label>Alamat</label>
-                <textarea class="form-control" name="alamat"><?php echo $guru['alamat']; ?></textarea>
+                <textarea class="form-control" name="alamat"><?php echo $siswa['alamat']; ?></textarea>
             </div>
         </div>
     </fieldset>
 </div>    
 <div class="col-md-4">
     <fieldset>
-    <legend>Status Guru</legend>
+    <legend>Status Siswa</legend>
         <div class="row">
             <div class="form-group">
-                <label>Status Guru</label>
-                <select class="form-control" name="status_guru">
+                <label>Status siswa</label>
+                <select class="form-control" name="status_siswa">
                     <option value="">-- Status Pegawai --</option>
-                    <option value="PNS" <?php echo $guru['status_guru']=="PNS"?'selected':'';?>>PNS</option>
-                    <option value="TETAP" <?php echo $guru['status_guru']=="TETAP"?'selected':'';?>>Tetap</option>
-                    <option value="KONTRAK" <?php echo $guru['status_guru']=="KONTRAK"?'selected':'';?>>Kontrak</option>
-                    <option value="HONORER" <?php echo $guru['status_guru']=="HONORER"?'selected':'';?>>Honorer</option>
-                    <option value="LAIN-LAIN" <?php echo $guru['status_guru']=="LAIN-LAIN"?'selected':'';?>>Lain-Lain</option>
+                    <option value="Aktif" <?php echo $siswa['status_siswa']=="Aktif"?'selected':'';?>>Aktif</option>
+                    <option value="Lulus" <?php echo $siswa['status_siswa']=="Lulus"?'selected':'';?>>Lulus</option>
+                    <option value="Keluar" <?php echo $siswa['status_siswa']=="Keluar"?'selected':'';?>>Keluar</option>
+                    <option value="Di Keluarkan" <?php echo $siswa['status_siswa']=="Di Keluarkan"?'selected':'';?>>Di Keluarkan</option>
                 </select>
             </div>
         </div>
