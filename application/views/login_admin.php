@@ -50,7 +50,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-            <strong>Kab Tegal</strong> - Sistem Perangkat Desa Kabupaten Tegal <br/> 2016 Copyright Restasolution
+            <strong>Kreasiandy</strong> - Sistem Akademik <br/> 2016 Copyright
         </div>
     </div>
 </div>

@@ -76,16 +76,20 @@ class Instansi extends CI_Controller {
 	}
 	public function siswa($page=NULL,$id_siswa=NULL){
         $var = array();
-        $var['module'] = "instansi/siswa";
-        $var['var_module'] = "instansi/siswa";
-        $var['var_title'] = "Siswa";
-        $var['var_subtitle'] = "List Daftar Siswa";
         $var['var_custom_css'] = "none";
         $var['var_custom_js'] = "none";
         $var['var_breadcrumb'] = array();
         $var['var_other'] = array("page"=>$page,"id_siswa"=>$id_siswa);
         if($page=="edit"){
-            
+            $var['module'] = "instansi/siswa";
+            $var['var_module'] = "instansi/siswa";
+            $var['var_title'] = "Siswa";
+            $var['var_subtitle'] = "List Daftar Siswa";
+        }else if($page=="ortu"){
+            $var['module'] = "instansi/ortu";
+            $var['var_module'] = "instansi/ortu";
+            $var['var_title'] = "Ortu";
+            $var['var_subtitle'] = "List Daftar Ortu";
         }else{
             $var['gcrud'] = 1;
             //$this->crud->unsetAdd();
@@ -159,6 +163,41 @@ class Instansi extends CI_Controller {
         $var['output'] = $output->output;
         $this->load->view('main',$var);
 	}
+    public function jadwal($page=NULL){
+        $var = array();
+        $var['gcrud'] = 1;
+        $var['module'] = "";
+        $var['var_module'] = "";
+        $var['var_title'] = "Jadwal Pelajaran";
+        $var['var_subtitle'] = "List Daftar Jadwal";
+        $var['var_custom_css'] = "none";
+        $var['var_custom_js'] = "none";
+        $var['var_breadcrumb'] = array();
+        $var['var_other'] = array("page"=>$page);
+        //$this->crud->unsetAdd();
+        //$this->crud->unsetEdit();
+        //$this->crud->unsetDelete();
+        $this->crud->setTable('sch_jadwal');
+        $this->crud->columns(['hari','waktu_mulai','waktu_selesai','keterangan']);
+        $this->crud->where(["id_instansi='".$this->session->userdata('id_instansi')."'"]);
+        //$this->crud->displayAs("kuota","Kuota Isi Kelas");
+        $this->crud->callbackBeforeInsert(function ($stateParameters) {
+            $stateParameters->data['id_instansi'] = $this->session->userdata('id_instansi');
+            return $stateParameters;
+        });
+        $this->crud->editFields(['hari','waktu_mulai','waktu_selesai','keterangan']);
+        $this->crud->addFields(['hari','waktu_mulai','waktu_selesai','keterangan']);
+        $output = $this->crud->render();
+        if ($output->isJSONResponse) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo $output->output;
+            exit;
+        }
+        $var['css_files'] = $output->css_files;
+        $var['js_files'] = $output->js_files;
+        $var['output'] = $output->output;
+        $this->load->view('main',$var);
+    }
 	public function pelajaran($page=NULL){
         $var = array();
         $var['gcrud'] = 1;
@@ -174,15 +213,20 @@ class Instansi extends CI_Controller {
         //$this->crud->unsetEdit();
         //$this->crud->unsetDelete();
         $this->crud->setTable('sch_pelajaran');
-        $this->crud->columns(['nama_pelajaran','status','keterangan']);
+        $this->crud->columns(['nama_pelajaran','id_jenjang','status','keterangan']);
         $this->crud->where(["id_instansi='".$this->session->userdata('id_instansi')."'"]);
-        
-		$this->crud->callbackBeforeInsert(function ($stateParameters) {
+        $this->crud->displayAs("id_jenjang","Jenjang Pendidikan");
+        $this->db->select("id_jenjang,jenjang")->from("sch_jenjang_pendidikan")->where("id_instansi",$this->session->userdata('id_instansi'));
+        $jenjang=$this->db->get();
+        $jenjang=array_column($jenjang->result_array(), 'jenjang', 'id_jenjang');
+		$this->crud->fieldType('id_jenjang', 'dropdown', $jenjang);
+        $this->crud->callbackBeforeInsert(function ($stateParameters) {
 		    $stateParameters->data['id_instansi'] = $this->session->userdata('id_instansi');
 		    return $stateParameters;
 		});
-        $this->crud->editFields(['nama_pelajaran','status','keterangan']);
-		$this->crud->addFields(['nama_pelajaran','status','keterangan']);
+
+        $this->crud->editFields(['nama_pelajaran','id_jenjang','status','keterangan']);
+		$this->crud->addFields(['nama_pelajaran','id_jenjang','status','keterangan']);
         $output = $this->crud->render();
         if ($output->isJSONResponse) {
             header('Content-Type: application/json; charset=utf-8');
@@ -285,4 +329,28 @@ class Instansi extends CI_Controller {
         $var['output'] = $output->output;
         $this->load->view('main',$var);
 	}
+    public function krs($page=NULL,$id_krs=NULL){
+        $var = array();
+        $var['module'] = "krs";
+        $var['var_module'] = "instansi/krs";
+        $var['var_title'] = "Jadwal Pelajaran";
+        $var['var_subtitle'] = "List Jadwal Pelajaran";
+        $var['var_custom_css'] = "none";
+        $var['var_custom_js'] = "none";
+        $var['var_breadcrumb'] = array();
+        $var['var_other'] = array("page"=>$page);
+        $this->load->view('main',$var);
+    }
+    public function absensi($page=NULL){
+        $var = array();
+        $var['module'] = "absensi";
+        $var['var_module'] = "instansi/absensi";
+        $var['var_title'] = "Absensi Siswa";
+        $var['var_subtitle'] = "List Absensi Siswa";
+        $var['var_custom_css'] = "none";
+        $var['var_custom_js'] = "none";
+        $var['var_breadcrumb'] = array();
+        $var['var_other'] = array("page"=>$page);
+        $this->load->view('main',$var);
+    }
 }

@@ -1,0 +1,185 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2017-11-21 04:07:58 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:07:59 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:08:06 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:08:06 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:12:07 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:12:08 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:12:18 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:12:18 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:13:35 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:13:35 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:19:33 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:19:33 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:19:45 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 04:19:46 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:36:56 --> Query error: Column 'id_pelajaran' in where clause is ambiguous - Invalid query: SELECT `b`.*, `a`.`nama_sk`, `a`.`bobot`
+FROM `sch_standar_kompetensi` `a`
+LEFT JOIN `sch_pelajaran` `b` ON `a`.`id_pelajaran`=`b`.`id_pelajaran`
+WHERE `id_pelajaran` = '1'
+AND `id_instansi` = '1'
+ERROR - 2017-11-21 07:37:42 --> Query error: Column 'id_pelajaran' in where clause is ambiguous - Invalid query: SELECT `b`.*, `a`.`nama_sk`, `a`.`bobot`
+FROM `sch_standar_kompetensi` `a`
+LEFT JOIN `sch_pelajaran` `b` ON `a`.`id_pelajaran`=`b`.`id_pelajaran`
+WHERE `id_pelajaran` = '1'
+AND `id_instansi` = '1'
+ERROR - 2017-11-21 07:37:48 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:37:53 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:37:53 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:38:00 --> Query error: Column 'id_pelajaran' in where clause is ambiguous - Invalid query: SELECT `b`.*, `a`.`nama_sk`, `a`.`bobot`
+FROM `sch_standar_kompetensi` `a`
+LEFT JOIN `sch_pelajaran` `b` ON `a`.`id_pelajaran`=`b`.`id_pelajaran`
+WHERE `id_pelajaran` = '1'
+AND `id_instansi` = '1'
+ERROR - 2017-11-21 07:40:01 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:40:01 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:41:39 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:41:40 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:42:23 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 07:42:23 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 08:04:15 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 08:04:15 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:14:11 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:14:12 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:14:24 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:14:24 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:19:33 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:19:33 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:23:31 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:23:31 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:23:49 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:23:49 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:24:26 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:24:26 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:24:36 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:24:36 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:25:02 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:25:02 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:26:23 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:26:23 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:26:47 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:26:47 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:28:31 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:28:32 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:32:11 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:32:11 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:32:28 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:32:29 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:33:49 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:33:49 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:52:07 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:53:43 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:53:43 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:55:11 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 09:55:12 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:00:25 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:00:26 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:01:36 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:01:36 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:10:10 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:10:10 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:19:15 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:19:15 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:21:29 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:21:29 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:22:42 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:22:42 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:25:35 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:25:35 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:35:36 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:35:37 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:39:10 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:39:11 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:45:04 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:45:05 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:46:02 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:46:02 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:47:59 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:47:59 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:48:48 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:48:48 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:50:36 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 10:50:36 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 15:44:29 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 15:44:29 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:18:02 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:18:02 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:18:25 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:18:25 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:21:19 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:21:20 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:23:37 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:23:37 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:24:32 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:24:32 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:25:22 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:25:23 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:31:43 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:31:43 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:31:57 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:31:58 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:33:31 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:33:31 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:34:03 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:34:03 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:34:43 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:34:44 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:38:21 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:38:21 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:38:56 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:38:56 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:39:08 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:39:08 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:40:28 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:40:28 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:41:28 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:41:29 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:42:32 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:42:32 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:43:18 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:43:18 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:43:55 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:43:55 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:56:46 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:57:17 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:57:17 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:57:51 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 16:57:52 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:03:55 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:03:55 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:30:25 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:30:26 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:30:33 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:30:33 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:36:38 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:36:39 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:37:08 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:37:09 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:37:11 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:37:11 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:38:48 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:38:48 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:39:24 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:39:24 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:40:05 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:40:05 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:40:44 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:40:44 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:42:04 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:42:04 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:42:44 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 17:42:44 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:01:06 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:01:06 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:05:00 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:05:00 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:08:57 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:08:57 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:09:46 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:09:46 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:10:35 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:10:35 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:10:59 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:10:59 --> 404 Page Not Found: Assets/vendor
+ERROR - 2017-11-21 18:10:59 --> 404 Page Not Found: Assets/vendor

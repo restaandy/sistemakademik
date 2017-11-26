@@ -5,7 +5,7 @@
                 <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                 <a class="closebox"><i class="fa fa-times"></i></a>
             </div>
-            Edit Data Siswa <?php $siswa=$this->gmodel->getDataTableInfo("data_siswa","id_siswa",$this->urlenkripsi->decode_url($id_siswa)); if(sizeof($siswa)==0){$this->gmodel->alert($siswa,"","Data Tidak Ada");redirect("instansi/siswa");}echo $siswa['nama_siswa'];?>
+            Data Siswa <?php $siswa=$this->gmodel->getDataTableInfo("data_siswa","id_siswa",$this->urlenkripsi->decode_url($id_siswa)); if(sizeof($siswa)==0){$this->gmodel->alert($siswa,"","Data Tidak Ada");redirect("instansi/siswa");}echo $siswa['nama_siswa'];?>
         </div>
         <div class="panel-body">
 <!-- Tambah siswa -->
@@ -26,7 +26,12 @@ fieldset {
     border: 0.1em solid gray;
 }
 </style>
+<div class="text-center m-b-md" id="wizardControl">
+    <a class="btn btn-primary" href="<?php echo base_url(); ?>instansi/siswa/edit/<?php echo $id_siswa; ?>">Step 1 - Data Siswa</a>
+    <a class="btn btn-default" href="<?php echo base_url(); ?>instansi/siswa/ortu/<?php echo $id_siswa; ?>">Step 2 - Data Orang Tua</a>
+</div>
 <?php echo form_open("operation/edit_siswa"); ?>
+<div class="row">
 <div class="col-md-4">
     <fieldset>
     <legend>Data Diri</legend>
@@ -34,7 +39,7 @@ fieldset {
             <div class="form-group">
                 <label>NISN</label>
                 <input type="hidden" value="<?php echo $this->session->userdata('id_instansi'); ?>" name="id_instansi">
-                <input type="hidden" value="<?php echo $siswa['id_siswa']; ?>" name="id_siswa">
+                <input type="hidden" value="<?php echo $this->urlenkripsi->decode_url($id_siswa); ?>" name="id_siswa">
                 <input type="text" placeholder="NISN" class="form-control" name="nisn" value="<?php echo $siswa['nisn']; ?>" required="">
             </div>
         </div>
@@ -156,6 +161,22 @@ fieldset {
                 <textarea class="form-control" name="alamat"><?php echo $siswa['alamat']; ?></textarea>
             </div>
         </div>
+        <div class="row">
+            <div class="form-group">
+                <label>Pendidikan Terakhir</label>
+                <?php $ortu['pendidikan_ayah']=isset($ortu['pendidikan_ayah'])?$ortu['pendidikan_ayah']:''; ?>
+                <select class="form-control" name="pendidikan_ayah" required="">
+                    <option value="">-- Pilih Pendidikan --</option>
+                    <option value="SD" <?php echo $ortu['pendidikan_ayah']=="SD"?"selected":""; ?>>SD</option>
+                    <option value="SMP / MTS" <?php echo $ortu['pendidikan_ayah']=="SMP / MTS"?"selected":""; ?>>SMP / MTS</option>
+                    <option value="SMA / MA / MI" <?php echo $ortu['pendidikan_ayah']=="SMA / MA / MI"?"selected":""; ?>>SMA / MA / MI</option>
+                    <option value="DIPLOMA (D1 - D3)" <?php echo $ortu['pendidikan_ayah']=="DIPLOMA (D1 - D3)"?"selected":""; ?>>DIPLOMA (D1 - D3)</option>
+                    <option value="SARJANA (S1)" <?php echo $ortu['pendidikan_ayah']=="SARJANA (S1)"?"selected":""; ?>>SARJANA (S1)</option>
+                    <option value="MAGISTER (S2)" <?php echo $ortu['pendidikan_ayah']=="MAGISTER (S2)"?"selected":""; ?>>MAGISTER (S2)</option>
+                    <option value="DOCTOR (S3)" <?php echo $ortu['pendidikan_ayah']=="DOCTOR (S3)"?"selected":""; ?>>DOCTOR (S3)</option>
+                </select>
+            </div>
+        </div>
     </fieldset>
 </div>    
 <div class="col-md-4">
@@ -177,8 +198,10 @@ fieldset {
     <br>
     <div class="form-group">
         <button class="btn btn-success btn-block" type="submit">Simpan</button>
+        <a href="<?php echo base_url(); ?>instansi/siswa/ortu/<?php echo $id_siswa; ?>" class="btn btn-primary btn-block">Lengkapi Data Orang Tua</a>
     </div>
 </div>  
+</div>
 <?php echo form_close(); ?>  
 <script type="text/javascript">
     $(document).ready(function(){
