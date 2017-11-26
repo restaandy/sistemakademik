@@ -7,7 +7,7 @@ return [
     'default_language'	=> 'Indonesian',
 
     // This is the assets folder where all the JavaScript, CSS, images and font files are located
-    'assets_folder' => 'http://127.0.0.1/sistemakademik/assets/grocery-crud/',
+    'assets_folder' => 'http://103.236.201.85/tuladha/sistemakademik/assets/grocery-crud/',
 
     // The default per page when a user firstly see a list page
     'default_per_page'	=> 10,
