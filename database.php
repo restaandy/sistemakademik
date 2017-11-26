@@ -2,9 +2,9 @@
 return [
     'adapter' => [
         'driver' => 'Mysqli',
-        'database' => 'akademik',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'tuladha_akademik',
+        'username' => 'tuladha',
+        'password' => 'tuladha.id',
         'hostname' => 'localhost',
         'charset' => 'utf8'
     ]
