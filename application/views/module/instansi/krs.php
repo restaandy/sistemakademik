@@ -27,7 +27,7 @@
                </ul>
             </div>
             <div class="panel-footer">
-                Daftar semua jadwal hari selasa
+                Daftar semua jadwal hari selasa 
             </div>
         </div>
         <div class="hpanel hgreen">

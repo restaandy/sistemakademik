@@ -39,9 +39,7 @@ if(sizeof($kelas)>15){
               <button type="button" onclick="loadabsen()" class="btn btn-primary btn-sm" style="margin-top: 10px;">Cari</button>
         	</div>
         	<center class="load hide"><img src="<?php echo base_url(); ?>assets/images/loading.gif" width="80" height="80"></center>
-        	<div id="loadabsen">
-        		
-        	</div>
+        	<div id="loadabsen"></div>
         </div>
     </div>
 </div>
